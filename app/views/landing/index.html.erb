@@ -1,1 +1,292 @@
-<h1>Landing Page</h1>
+<!--hero-->
+<section class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://blog3169.s3.us-east-2.amazonaws.com/w3070.webp')]">
+  <div class="flex justify-center items-center py-8 px-4 w-full min-h-svh lg:py-16 z-10 bg-gradient-to-br from-orange-400/40 via-teal-950/20 to-gray-500/30 relative">
+    <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded">
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-black mb-5 text-teal-400 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="py-2 px-3 bg-black mb-5 text-rose-400 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+      <% end %>
+      <span class="mb-1 text-2xl font-semibold tracking-tight leading-none md:text-4xl lg:text-4xl text-white">
+        Steer your career in the right direction.
+      </span>
+      <div class="flex flex-col justify-center items-center w-11/12">
+        <%= image_tag('https://blog3169.s3.us-east-2.amazonaws.com/logo1.png') %>
+      </div>
+      <%= link_to "START YOUR JOURNEY", "#contact", class: "py-4 px-12 mt-6 rounded bg-yellow-300 text-slate-900 hover:bg-yellow-400 cursor-pointer" %>
+    </div>
+  </div>
+</section>
+<!--newsletter-->
+<section class="w-full bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 z-10 relative">
+    <div class="mx-auto max-w-screen-md sm:text-center">
+      <h2 class="mb-4 text-3xl tracking-tight font-extrabold sm:text-4xl font-bak text-yellow-300">Stay up to date with our newsletter</h2>
+      <p class="mx-auto mb-8 max-w-2xl font-light md:mb-12 sm:text-xl text-gray-400">Transportation is changing. Sign up to get the latest news on developments!</p>
+      <%= render "newsletter" %>
+    </div>
+  </div>
+</section>
+<!--about --->
+<section class="w-full bg-zinc-950">
+  <div class="flex flex-col justify-center items-center py-8 px-4 w-full">
+    <div class="lg:w-5/6 text-center">
+      <div class="flex justify-center text-2xl sm:text-3xl my-6 text-gray-400">
+        <span class="font-sans">About &nbsp;</span>
+        <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png", class: "max-w-64") %>
+      </div>
+      <p class="font-normal sm:text-xl text-gray-400 my-6">
+        Founded in 2024 by a group of experienced recruiting specialists, TruckerJobs4u.com emerged from a collective vision to revolutionize the truck driver recruitment industry. Our founders, having spent years navigating the complexities of driver placement, recognized a glaring need for a more personalized and honest approach to career planning for truck drivers.
+      </p>
+      <p class="font-normal sm:text-xl text-gray-400 my-6">
+        At TruckerJobs4u.com, we believe that every driver’s journey is unique. Our mission is to provide tailored career plans that align with each driver’s specific skills, goals, and lifestyle preferences. Unlike traditional recruitment agencies that often prioritize filling positions over the individual needs of drivers, we focus on creating meaningful matches between drivers and carriers.
+      </p>
+      <p class="font-normal sm:text-xl text-gray-400 my-6">
+        We work closely with a network of reputable carriers that offer diverse opportunities, from local routes to long-haul trips. Our commitment is to ensure that every driver we place is positioned for long-term success and satisfaction. We pride ourselves on our integrity and professionalism, striving to build lasting relationships with both our drivers and carrier partners
+      </p>
+      <p class="font-normal sm:text-xl text-gray-400 my-6">
+        At TruckerJobs4u.com, we go beyond mere job placement. We provide comprehensive support throughout the entire career journey of our drivers, from initial consultation to career advancement. Our goal is to redefine what it means to work in the trucking industry by offering drivers true career paths that not only meet their immediate needs but also pave the way for future growth and fulfillment
+      </p>
+      <p class="font-normal sm:text-xl text-gray-400 my-6">
+        Join us at TruckerJobs4u.com, where your career journey is our top priority.
+      </p>
+    </div>
+  </div>
+</section>
+<!--General information on site / app-->
+<section class="bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <div class="max-w-screen-md mb-8 lg:mb-16">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Designed for modern truckers</h2>
+      <p class="text-gray-500 sm:text-xl dark:text-gray-400">Class A Services has one central theme. To free you from the stress of the job hunt. With Class A Services you get a dedicated professional who's top priorty is to help you find the driving career you've worked so hard for.</p>
+    </div>
+    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <defs>
+            <style>
+              rect, path, line, polyline, circle {
+                stroke: black;
+                color-scheme: light dark;
+              }
+              @media (prefers-color-scheme:dark) {
+                rect, path, line, polyline, circle {
+                  stroke: white;
+                }
+              }
+            </style>
+          </defs>
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Programming_Web_Incognito_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+            <rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(2 0 0 2 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 -3.38 4.12)" >
+                  <circle style="stroke-width: 0.75; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2.25" />
+                </g>
+                <g transform="matrix(1 0 0 1 3.13 4.12)" >
+                  <circle style="stroke-width: 0.75; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="2.25" />
+                </g>
+                <g transform="matrix(1 0 0 1 -0.13 3.62)" >
+                  <path style="stroke-width: 0.75; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7, -10.74)" d="M 5.99805 11.2417 C 5.99805 11.2417 5.99805 10.2411 6.99856 10.2411 C 7.99908 10.2411 7.99908 11.2417 7.99908 11.2417" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -0.13 -0.62)" >
+                  <path style="stroke-width: 0.75; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7, -6.5)" d="M 0.5 6.50002 L 13.5 6.50002" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -0.13 -3.63)" >
+                  <path style="stroke-width: 0.75; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7, -3.5)" d="M 2.86084 1.33557 C 2.94121 0.853395 3.3584 0.499992 3.84723 0.499992 L 10.1529 0.499992 C 10.6417 0.499992 11.0589 0.853416 11.1393 1.33561 L 11.9999 6.49999 L 2 6.49999 L 2.86084 1.33557 Z" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">Work History</h3>
+        <p class="text-gray-500 dark:text-gray-400">No one really thinks about work history until they have to. Easily keep track of your history with our system.</p>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Legal_Document_Certificate_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(0.58 0 0 0.58 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 -0.21 -3.21)" >
+                  <path style="stroke-width: 2.586206896551724; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-24, -21)" d="M 22 38.994 C 15.6866 38.9559 11.1751 38.7415 8.24771 38.5374 C 5.69823 38.3596 3.70941 36.4556 3.48564 33.9098 C 3.24052 31.121 3 26.8851 3 21 C 3 15.1149 3.24052 10.879 3.48565 8.09024 C 3.70942 5.54438 5.69823 3.64036 8.24772 3.46263 C 11.4754 3.23761 16.6288 3 24 3 C 31.3712 3 36.5246 3.23762 39.7523 3.46263 C 42.3018 3.64037 44.2906 5.54439 44.5144 8.09025 C 44.7595 10.879 45 15.1149 45 21 C 45 26.8851 44.7595 31.121 44.5144 33.9098 C 44.2979 36.3726 42.4297 38.2347 40 38.5145" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 6.79 7.71)" >
+                  <path style="stroke-width: 2.586206896551724; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-31, -31.91)" d="M 22 28 C 22 29.2571 22.5799 30.3788 23.4868 31.1121 C 23.3641 32.2719 23.7471 33.4751 24.6361 34.364 C 25.3015 35.0294 26.143 35.4114 27.0107 35.5099 C 26.9804 37.7721 27.0061 40.7092 27.2002 43.9048 C 27.2513 44.7451 28.2582 45.1292 28.8658 44.5466 L 30.4809 42.9978 C 30.771 42.7196 31.229 42.7196 31.5191 42.9978 L 33.1342 44.5466 C 33.7418 45.1292 34.7487 44.7451 34.7998 43.9048 C 34.9939 40.7092 35.0196 37.7721 34.9893 35.5099 C 35.857 35.4114 36.6985 35.0294 37.364 34.364 C 38.2529 33.475 38.636 32.2719 38.5132 31.1121 C 39.4201 30.3788 40 29.2571 40 28 C 40 26.7429 39.4201 25.6212 38.5132 24.8879 C 38.636 23.7281 38.2529 22.525 37.364 21.636 C 36.4751 20.7471 35.2719 20.3641 34.1121 20.4868 C 33.3788 19.5799 32.2571 19 31 19 C 29.7429 19 28.6212 19.5799 27.8879 20.4868 C 26.7281 20.3641 25.525 20.7471 24.6361 21.636 C 23.7471 22.5249 23.3641 23.7281 23.4868 24.8879 C 22.5799 25.6212 22 26.7429 22 28 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 6.79 3.84)" >
+                  <circle style="stroke-width: 2.586206896551724; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="3" />
+                </g>
+                <g transform="matrix(1 0 0 1 -1.71 -12.21)" >
+                  <path style="stroke-width: 2.586206896551724; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-22.5, -12)" d="M 12 12 L 33 12" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -9.21 -5.21)" >
+                  <path style="stroke-width: 2.586206896551724; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -19)" d="M 12 19 L 18 19" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">License Info</h3>
+        <p class="text-gray-500 dark:text-gray-400">Easily keep your license info up to date and easily accessible, from anywhere, anytime.</p>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Touch_Finger_1_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(1.17 0 0 1.17 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 0.05 2.52)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12.16, -14.63)" d="M 9.477 23.247 L 5.627000000000001 18.115000000000002 C 5.237431277541472 17.594928132426084 5.217800826160446 16.885828153968614 5.577999999999999 16.345000000000002 L 5.578 16.345000000000002 C 5.811913363191956 15.994769638973867 6.179533637450172 15.756116361347821 6.594648496940606 15.685007847831464 C 7.009763356431041 15.613899334315107 7.435855465976139 15.716590946196257 7.773000000000001 15.969000000000003 L 9.472999999999999 17.247000000000003 L 9.472999999999999 7.5 C 9.472999999999999 6.67157287525381 10.14457287525381 6 10.972999999999999 6 L 10.972999999999999 6 C 11.801427124746189 6 12.472999999999999 6.671572875253809 12.472999999999999 7.5 L 12.472999999999999 13.5 L 16.647 14.428 C 18.119841440705336 14.755248204365987 19.12050134297342 16.125428643928622 18.983999999999998 17.628 L 18.473 23.25 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -1.13 -10.24)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.98, -1.87)" d="M 10.977 2.997 L 10.977 0.747" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 2.62 -9.11)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-14.73, -3)" d="M 13.977 3.747 L 15.477 2.247" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -4.88 -9.11)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7.23, -3)" d="M 7.977 3.747 L 6.477 2.247" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 3.74 -6.11)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15.85, -6)" d="M 14.727 5.997 L 16.977 5.997" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -6.01 -6.11)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.1, -6)" d="M 7.227 5.997 L 4.977 5.997" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">Personal Touch</h3>
+        <p class="text-gray-500 dark:text-gray-400">No matter if you are seriously hunting or starting to look, our recruiters are with you every step of the way. From initial data gathering, through the search, and after to ensure you are happy.</p>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Office_File_Pdf_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(1.17 0 0 1.17 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 -7.61 3.64)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-4.5, -15.75)" d="M 4.499 19.498 L 4.499 11.998" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -6.11 2.14)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6, -14.25)" d="M 4.5 12 L 5.25 12 C 6.492640687119286 12 7.5 13.007359312880714 7.5 14.25 C 7.5 15.492640687119284 6.492640687119286 16.5 5.250000000000001 16.5 L 4.5 16.5" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -0.11 3.64)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15.75)" d="M 10.5 19.5 C 12.15685424949238 19.5 13.5 18.15685424949238 13.5 16.5 L 13.5 15 C 13.5 13.34314575050762 12.15685424949238 12 10.5 12 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 5.89 3.64)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-18, -15.75)" d="M 16.5 19.5 L 16.5 13.5 C 16.5 12.67157287525381 17.17157287525381 12 18 12 L 19.5 12" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 5.52 4.39)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-17.62, -16.5)" d="M 16.499 16.498 L 18.749 16.498" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -0.11 -0.11)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 22.809 5.559 C 23.090384974751913 5.840034716566405 23.248649895920238 6.221309299381003 23.249000000000002 6.618999999999998 L 23.249000000000002 21 C 23.247896593765898 22.241469219039804 22.241469586991816 23.247448726033195 21 23.248 L 3 23.248 C 1.7577495082479508 23.24855260204082 0.750104099858997 22.242250124005114 0.7490000000000006 21 L 0.749 3 C 0.7484690457110413 2.4027431408856006 0.9854248303515165 1.8297811958092887 1.4076555746380417 1.4073628767807436 C 1.8298863189245669 0.9849445577521982 2.4027429639728974 0.7477343163961723 2.9999999999999982 0.7480000000000002 L 17.377 0.748 C 17.774893708544617 0.7478197246083375 18.156556528775006 0.9057367633276024 18.438 1.1870000000000003 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 8.14 -8.36)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-20.25, -3.75)" d="M 17.249 0.748 L 17.249 5.248 C 17.249 6.07642712474619 17.920572875253807 6.748 18.749 6.748 L 23.249 6.748" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">Print PDF</h3>
+        <p class="text-gray-500 dark:text-gray-400">Resume's can be difficult to scrape together. Here, once your information is secured in the system, you can download a PDF and it's all done.</p>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Emoji_Great_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(1.17 0 0 1.17 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 1.46 -0.87)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-13.32, -10.99)" d="M 3.13699 7.391 C 3.78694 5.61613 4.90393 4.04961 6.3701 2.85674 C 7.83627 1.66388 9.59725 0.888893 11.4672 0.613568 C 13.3372 0.338244 15.2468 0.572788 16.9946 1.29245 C 18.7423 2.01212 20.2634 3.19022 21.3973 4.70243 C 22.5313 6.21465 23.236 8.00491 23.4371 9.88431 C 23.6382 11.7637 23.3283 13.6625 22.54 15.3805 C 21.7518 17.0984 20.5144 18.5717 18.9585 19.6449 C 17.4026 20.7181 15.5859 21.3514 13.7 21.478" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -1.73 -3.61)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.13, -8.25)" d="M 10.25 8.5 C 10.1119 8.5 10 8.38807 10 8.25 C 10 8.11193 10.1119 8 10.25 8" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -1.48 -3.61)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-10.38, -8.25)" d="M 10.25 8.5 C 10.3881 8.5 10.5 8.38807 10.5 8.25 C 10.5 8.11193 10.3881 8 10.25 8" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 7.27 -3.61)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-19.13, -8.25)" d="M 19.2535 8.5 C 19.1154 8.5 19.0035 8.38807 19.0035 8.25 C 19.0035 8.11193 19.1154 8 19.2535 8" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 7.52 -3.61)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-19.38, -8.25)" d="M 19.2535 8.5 C 19.3916 8.5 19.5035 8.38807 19.5035 8.25 C 19.5035 8.11193 19.3916 8 19.2535 8" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 3.15 2.14)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-15, -14)" d="M 18.178 11.992 C 18.3022 11.988 18.4257 12.0131 18.5385 12.0651 C 18.6514 12.1172 18.7506 12.1948 18.8282 12.2918 C 18.9058 12.3889 18.9598 12.5027 18.9858 12.6242 C 19.0118 12.7458 19.0091 12.8717 18.978 12.992 C 18.6899 14.0313 18.0049 14.9158 17.0707 15.4547 C 16.1365 15.9936 15.0279 16.1438 13.984 15.873 C 13.2787 15.7013 12.6326 15.3434 12.1129 14.8366 C 11.5933 14.3298 11.2193 13.6927 11.03 12.992 C 11.0039 12.8892 10.9985 12.7823 11.0141 12.6774 C 11.0298 12.5725 11.0661 12.4718 11.121 12.381 C 11.1759 12.2903 11.2483 12.2114 11.3339 12.1489 C 11.4196 12.0864 11.5168 12.0416 11.62 12.017 C 11.6874 12.0003 11.7566 11.9919 11.826 11.992 L 18.178 11.992 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -8.73 0.82)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-3.13, -12.68)" d="M 2 14.71 L 1.348 12.718 C 1.21778 12.3223 1.24996 11.8911 1.43746 11.5191 C 1.62496 11.1471 1.95245 10.8647 2.348 10.734 C 2.74437 10.6043 3.17603 10.6373 3.54807 10.8257 C 3.92012 11.0142 4.20209 11.3427 4.332 11.739 L 4.985 13.731" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -6.3 6.42)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-5.56, -18.28)" d="M 8.34699 13.887 L 8.338 13.859 C 8.24171 13.5656 8.03291 13.3225 7.75746 13.183 C 7.48202 13.0435 7.16246 13.019 6.86899 13.115 L 5.09999 13.7 L 4.37499 13.937 L 3.11399 14.351 C 2.15933 14.6638 1.36778 15.3425 0.913121 16.2384 C 0.458463 17.1342 0.377856 18.1738 0.688995 19.129 L 1.26599 20.888 C 1.57911 21.8435 2.25887 22.6355 3.1558 23.0898 C 4.05274 23.5442 5.09342 23.6238 6.04899 23.311 L 7.30999 22.9 L 9.80999 22.083 C 10.1034 21.9865 10.3466 21.7775 10.4861 21.5019 C 10.6256 21.2263 10.65 20.9066 10.554 20.613 L 10.545 20.586 C 10.4975 20.4406 10.4219 20.3059 10.3223 20.1898 C 10.2228 20.0736 10.1013 19.9782 9.96492 19.909 C 9.82849 19.8398 9.67975 19.7982 9.52722 19.7865 C 9.3747 19.7749 9.22136 19.7934 9.07599 19.841 C 9.36936 19.7447 9.6125 19.5359 9.752 19.2605 C 9.8915 18.985 9.91596 18.6655 9.81999 18.372 L 9.81099 18.344 C 9.71472 18.0504 9.50576 17.8071 9.23008 17.6676 C 8.9544 17.528 8.63459 17.5037 8.34099 17.6 C 8.48642 17.5525 8.62106 17.4769 8.73723 17.3773 C 8.85339 17.2778 8.9488 17.1564 9.01799 17.0199 C 9.08718 16.8835 9.1288 16.7348 9.14047 16.5822 C 9.15214 16.4297 9.13363 16.2764 9.08599 16.131 L 9.07299 16.1 C 8.97649 15.8066 8.7675 15.5634 8.4919 15.4239 C 8.21629 15.2844 7.89659 15.26 7.60299 15.356 C 7.74841 15.3085 7.88303 15.2329 7.99916 15.1333 C 8.11528 15.0338 8.21063 14.9123 8.27974 14.7758 C 8.34885 14.6394 8.39036 14.4906 8.4019 14.3381 C 8.41345 14.1856 8.39479 14.0323 8.34699 13.887 L 8.34699 13.887 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -5.11 2.64)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-6.75, -14.5)" d="M 5.10001 13.7 L 6.87101 13.12 C 7.16447 13.024 7.48403 13.0485 7.75948 13.188 C 8.03492 13.3275 8.24372 13.5706 8.34001 13.864 L 8.34901 13.892 C 8.44349 14.1855 8.4177 14.5044 8.27728 14.7789 C 8.13685 15.0534 7.89328 15.2609 7.60001 15.356 L 5.82901 15.936" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -4.37 4.88)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-7.49, -16.74)" d="M 5.832 15.936 L 7.603 15.356 C 7.8966 15.26 8.2163 15.2844 8.4919 15.4239 C 8.76751 15.5634 8.9765 15.8066 9.073 16.1 L 9.082 16.128 C 9.13009 16.2736 9.14895 16.4272 9.13751 16.58 C 9.12607 16.7329 9.08454 16.882 9.01532 17.0188 C 8.9461 17.1556 8.85054 17.2773 8.73413 17.377 C 8.61773 17.4768 8.48277 17.5526 8.337 17.6 L 6.567 18.18" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -3.64 7.12)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-8.22, -18.98)" d="M 6.567 18.177 L 8.337 17.597 C 8.6306 17.5007 8.95041 17.525 9.22609 17.6646 C 9.50177 17.8041 9.71073 18.0474 9.807 18.341 L 9.816 18.369 C 9.91197 18.6625 9.88751 18.982 9.74801 19.2575 C 9.6085 19.5329 9.36536 19.7417 9.072 19.838 L 7.3 20.419" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -2.91 9.36)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-8.95, -21.22)" d="M 7.3 20.419 L 9.071 19.838 C 9.21637 19.7904 9.3697 19.7719 9.52223 19.7835 C 9.67476 19.7952 9.82349 19.8368 9.95993 19.906 C 10.0964 19.9752 10.2178 20.0706 10.3173 20.1868 C 10.4169 20.3029 10.4925 20.4376 10.54 20.583 L 10.549 20.61 C 10.645 20.9036 10.6206 21.2233 10.4811 21.4989 C 10.3416 21.7745 10.0984 21.9835 9.805 22.08 L 8.034 22.66" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">Hassle Free</h3>
+        <p class="text-gray-500 dark:text-gray-400">You just want to drive. We want that for you. From introduction to finally having that dream, we work tirelessly to ensure you succeed.</p>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+          <svg class="w-5 h-5 text-primary-600 lg:w-10 lg:h-10 dark:text-primary-300" id='Like_Ribbon_32' width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='32' height='32' stroke='none' fill='currentColor' opacity='0'/>
+            <g transform="matrix(1.17 0 0 1.17 16 16)" >
+              <g style="" >
+                <g transform="matrix(1 0 0 1 0.06 -3.23)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-11.92, -8.63)" d="M 15.539 12.5 C 15.199416286155996 13.24059894324101 14.44268963649021 13.69938923659859 13.629 13.658 L 11.629 13.658 C 9.552999999999999 13.658 10.504 12.822 6.504 12.822 L 6.504 8.66 L 7.476999999999999 8.66 C 9.293 8.66 10.291 6.525 11.335999999999999 4.2540000000000004 C 11.679999999999998 3.5090000000000003 12.503999999999998 3.1060000000000008 12.503999999999998 4.663 L 12.503999999999998 7.663 L 16.561 7.663 C 16.76058292158952 7.648668272770465 16.957249028816957 7.717231245773577 17.104664798258558 7.852535835184033 C 17.25208056770016 7.987840424594487 17.33721107121689 8.177922607794299 17.34 8.378 Z" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 -7.2 6.84)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-4.66, -18.7)" d="M 4.148 14.034 L 0.56 20.181 C 0.42200000000000004 20.419 0.532 20.576 0.803 20.53 L 4.1610000000000005 19.961000000000002 L 5.325 23.161 C 5.4190000000000005 23.419 5.611 23.438000000000002 5.752 23.201 L 8.817 18.053" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 7.48 6.84)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-19.34, -18.7)" d="M 19.852 14.034 L 23.44 20.181 C 23.578000000000003 20.419 23.468 20.576 23.197000000000003 20.53 L 19.839000000000002 19.961000000000002 L 18.675 23.161 C 18.581 23.419 18.389 23.438000000000002 18.248 23.201 L 15.183000000000002 18.053" stroke-linecap="round" />
+                </g>
+                <g transform="matrix(1 0 0 1 0.14 -2.23)" >
+                  <path style="stroke-width: 1.2820512820512822; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -9.63)" d="M 3 9.632 C 3 14.60256274847714 7.029437251522859 18.631999999999998 12 18.631999999999998 C 16.970562748477143 18.631999999999998 21 14.60256274847714 21 9.632 C 21 4.661437251522859 16.970562748477143 0.6319999999999997 12 0.6319999999999997 C 7.029437251522859 0.6319999999999997 3 4.661437251522858 3 9.631999999999998 Z" stroke-linecap="round" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold dark:text-white">Simple</h3>
+        <p class="text-gray-500 dark:text-gray-400">Easy to enter your information. Easy to keep it updated. Easy to share. Rest easy knowing your information is locked down and secured. Unmatched Class A Service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--contact-->
+<section id="contact" class="w-full pt-10 bg-zinc-950">
+  <div class="flex flex-col justify-center items-center">
+    <div class="w-full lg:max-w-4xl my-10 p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-900 border-gray-700">
+      <div class="grid sm:grid-cols-2">
+        <div class="block mx-auto">
+          <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Truck+Interior_1722132169.jpg", class: "rounded-lg w-72 sm:w-full", alt: "big rig interior of driver seat") %>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+          <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg">
+            <h2 class="text-2xl font-bold text-white">
+              Contact Us.
+            </h2>
+            <small class="text-white">Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!</small>
+            <%= render "leadform" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

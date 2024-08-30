@@ -18,8 +18,13 @@ The app has be started as a concept and while building out the Landing page, the
 
 Combine the app and Landing page. Use existing functionality of the landing page to continue to gain access to the app. The app can have direct access through a slightly modified url. Example: truckerjobs4u.com/app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Working Update**
+
+Stage one is complete minus testing. It is very heavy and frankenstein'ed together. Have begun to correct stage one issue here. I had one page that held one form for leads and one for the newsletter. Both of these forms accepted data. I had a admin page that displayed and manipulated data from the leads and newsletters data. There was no need for everything that was created via the scaffold command and left security risks.
+
+* In stage one I used scaffold to generate leads and the newsletter. This created a solid foundation for dealing with the data, however it grew clunky when I did not use the installed structure and built everything into the landing page.
+* Here I generated the landing controller which gave me the controller and the view, then the lead and newsletter models separate which gave me the data tables I need. 
+* I have wrote the create action specific for the lead model and placed the form in the landing page via a partial in the landing folder in views. Physical testing shows working in both the page and the Rails console.
 
 Things you may want to cover:
 

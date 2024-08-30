@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Post action for the contact form in landing controller
+  post "/landing/lead", to: "landing#create_lead"
+
+  # Post action for the newsletter form in landing controller
+  post "/landing/newsletter", to: "landing#create_newsletter"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

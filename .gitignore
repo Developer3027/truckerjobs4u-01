@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore bundle file in vendor
+vendor/bundle/*
+
 # Ignore bundle in vendor folder
 /vendor/bundle/*
 
