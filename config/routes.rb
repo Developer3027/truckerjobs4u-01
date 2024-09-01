@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   # Post action for the contact form in landing controller
   post "/landing/lead", to: "landing#create_lead"
