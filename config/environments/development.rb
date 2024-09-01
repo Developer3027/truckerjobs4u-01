@@ -39,6 +39,12 @@ Rails.application.configure do
   # default mailer url for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Letter_opener delivery method
+  config.action_mailer.delivery_method = :letter_opener
+
+  # Set Letter_opener delivery to true
+  config.action_mailer.perform_deliveries = true
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
