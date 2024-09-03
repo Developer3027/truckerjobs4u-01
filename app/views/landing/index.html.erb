@@ -1,5 +1,5 @@
 <!--hero-->
-<section class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://blog3169.s3.us-east-2.amazonaws.com/w3070.webp')]">
+<section id="hero" class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://blog3169.s3.us-east-2.amazonaws.com/w3070.webp')]">
   <div class="flex justify-center items-center py-8 px-4 w-full min-h-svh lg:py-16 z-10 bg-gradient-to-br from-orange-400/40 via-teal-950/20 to-gray-500/30 relative">
     <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded">
       <% if notice.present? %>
@@ -19,7 +19,7 @@
   </div>
 </section>
 <!--newsletter-->
-<section class="w-full bg-gray-900">
+<section id="newsletter" class="w-full bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 z-10 relative">
     <div class="mx-auto max-w-screen-md sm:text-center">
       <h2 class="mb-4 text-3xl tracking-tight font-extrabold sm:text-4xl font-bak text-yellow-300">Stay up to date with our newsletter</h2>
@@ -29,7 +29,7 @@
   </div>
 </section>
 <!--about --->
-<section class="w-full bg-zinc-950">
+<section id="about" class="w-full bg-zinc-950">
   <div class="flex flex-col justify-center items-center py-8 px-4 w-full">
     <div class="lg:w-5/6 text-center">
       <div class="flex justify-center text-2xl sm:text-3xl my-6 text-gray-400">
@@ -55,7 +55,7 @@
   </div>
 </section>
 <!--General information on site / app-->
-<section class="bg-gray-900">
+<section id="general" class="bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
     <div class="max-w-screen-md mb-8 lg:mb-16">
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Designed for modern truckers</h2>
@@ -281,12 +281,15 @@
             <h2 class="text-2xl font-bold text-white">
               Contact Us.
             </h2>
-            <small class="text-white">Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!</small>
-            <%= render "leadform" %>
-          </div>
+            <small class="text-white">Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!</small></br>
+          <small class="text-gray-300">
+            [<span class="text-orange-300"> * </span>] indicates required
+          </small>
+          <%= render "leadform" %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </section>

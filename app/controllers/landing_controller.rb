@@ -13,12 +13,12 @@ class LandingController < ApplicationController
       respond_to do |format|
         if @lead.save
           # Send email to admin
-          LeadMailer.new_lead_email(@lead).deliver_now
+          # LeadMailer.new_lead_email(@lead).deliver_now
           # Send email to driver
           DriverMailer.new_driver_email(@lead).deliver_now
           format.html { redirect_to root_path, notice: "Thank you! We will be in touch soon!" }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_to root_path, alert: "Contact failed: #{@lead.errors.full_messages.join(', ')}" }
         end
       end
     end
@@ -38,7 +38,7 @@ class LandingController < ApplicationController
           NewsletterMailer.new_newsletter_email(@newsletter).deliver_now
           format.html { redirect_to root_path, notice: "Thank you! We will be in touch soon!" }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_to root_path, alert: "Failed to sign up: #{@newsletter.errors.full_messages.join(', ')}" }
         end
       end
     end
@@ -47,10 +47,10 @@ class LandingController < ApplicationController
   private
 
   def lead_params
-    params.require(:lead).permit(:first_name, :last_name, :email, :phone, :location, :note, :pp_check, :commit)
+    params.require(:lead).permit(:first_name, :last_name, :lead_email, :phone, :location, :note, :pp_check, :commit)
   end
 
   def newsletter_params
-    params.require(:newsletter).permit( :email, :pp_check, :commit)
+    params.require(:newsletter).permit( :newsletter_email, :pp_check, :commit)
   end
 end

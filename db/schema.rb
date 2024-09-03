@@ -10,27 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_31_230127) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_03_004335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "leads", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
+    t.string "lead_email"
     t.string "phone"
     t.string "location"
     t.text "note"
     t.boolean "pp_check"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lead_email"], name: "leads_email_index"
   end
 
   create_table "newsletters", force: :cascade do |t|
-    t.string "email"
+    t.string "newsletter_email"
     t.boolean "pp_check"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["newsletter_email"], name: "newsletters_email_index"
   end
 
   create_table "users", force: :cascade do |t|

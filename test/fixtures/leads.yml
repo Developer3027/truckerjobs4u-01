@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  location: MyString
-  note: MyText
-  pp_check: false
+  first_name: Mason
+  last_name: Roberts
+  lead_email: mr@mail.com
+  phone: 5555559861
+  location: Rock Hill, SC
+  note: Great guy
+  pp_check: true
 
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
+  lead_email: MyString
   phone: MyString
   location: MyString
   note: MyText
-  pp_check: false
+  pp_check: true
