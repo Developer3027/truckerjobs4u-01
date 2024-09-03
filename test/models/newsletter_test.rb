@@ -1,3 +1,5 @@
+# test/models/newsletter_test.rb
+# Testing functionality of Newsletter model
 require "test_helper"
 
 class NewsletterTest < ActiveSupport::TestCase

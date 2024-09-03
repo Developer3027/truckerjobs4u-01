@@ -24,7 +24,32 @@ Stage one is complete minus testing. It is very heavy and frankenstein'ed togeth
 
 * In stage one I used scaffold to generate leads and the newsletter. This created a solid foundation for dealing with the data, however it grew clunky when I did not use the installed structure and built everything into the landing page.
 * Here I generated the landing controller which gave me the controller and the view, then the lead and newsletter models separate which gave me the data tables I need. 
-* I have wrote the create action specific for the lead model and placed the form in the landing page via a partial in the landing folder in views. Physical testing shows working in both the page and the Rails console.
+* I have wrote the create action specific for the lead model and placed the form in the landing page via a partial in the landing folder in views. Physical testing shows working in both the landing page and the Rails console.
+
+**week previous to 9.3.24**
+* Landing page is working. Landing page controller and Landing view for showing the landing page.
+* Newsletter model created
+* Lead model created
+* Create actions for newsletter and lead built and in landing controller.
+* Mailers for driver, admin-lead, and newsletter are created.
+* Create actions for lead and newsletter send appropriate emails on creation.
+* Using letter-opener gem for email review in development
+
+**9.3.24**
+* Unit tests for newsletter and lead model written and working.
+  * Test functionality of models.
+    * Lead and newsletter will save with correct information
+    * Lead and newsletter will not save if no information
+* Systems tests for landing page written and working.
+ * Test aspects of the landing page.
+    * Slogan in hero
+    * CTA works in hero
+    * Ensure checkboxes for newsletter and lead
+    * Ensure value of checkboxes
+    * TruckerJobs4u.com phrase count in about section
+
+* Project board in github setup
+
 
 Things you may want to cover:
 

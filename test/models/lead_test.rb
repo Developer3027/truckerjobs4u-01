@@ -1,8 +1,10 @@
 # test/models/lead_test.rb
+# Testing functionality of Lead model
 
 require "test_helper"
 
 class LeadTest < ActiveSupport::TestCase
+  # test that lead can be created
   test "should create a valid lead" do
     lead = Lead.new(first_name: "John",
                     last_name: "Doe",
@@ -25,6 +27,7 @@ class LeadTest < ActiveSupport::TestCase
   #   refute lead.save, "Did not save lead"
   # end
 
+  # test that lead cannot be created without required fields
   test "should not create a lead with missing required fields" do
     lead = Lead.new(first_name: "",
                     last_name: "",
