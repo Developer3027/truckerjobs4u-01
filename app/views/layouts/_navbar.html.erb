@@ -1,17 +1,54 @@
 <!-- //? Sticky Top Navbar -->
-<div class="fixed top-0 z-50 w-full px-12 bg-black text-slate-100" >
-  <nav class="flex flex-wrap justify-center sm:flex-row sm:justify-between items-center py-3 sm:p-4 h-20">
+<div class="fixed top-0 z-50 w-full" data-controller="navbar" data-action="resize@window->navbar#closeOnLargerScreen keyup@window->navbar#closeWithEscape">
+  <nav class="relative flex justify-between items-center p-4 h-20 text-terminal-window bg-zinc-800 text-gray-100">
     <!-- //? Left section links home -->
-    <div class="flex justify-center items-center max-w-64">
-      <%= link_to root_path, class: "" do %>
+    <div class="flex justify-center items-center">
+      <%= link_to root_path do %>
         <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/logo1.png") %>
       <% end %>
     </div>
     <!-- //? Right section Page Links -->
-    <div class="flex flex-grow justify-center sm:justify-end">
+    <div class="flex flex-grow justify-end">
       <ul class="flex space-x-2">
-        <li class="flex font-poppins text-center">( 501 ) 420-3750</li>
+        <li class="hidden md:flex"><%= link_to "Blog", root_path %></li>
+        <% if user_signed_in? %>
+          <li>
+            <button role="button" aria-label="menu" data-action="click->navbar#profileToggle">
+              <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile-active.svg", size: "24x24", class: "mx-10 md:mx-4") %>
+            </button>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to user_session_path do %>
+              <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile.svg", size: "24x24", class: "mx-10 md:mx-4") %>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
+      <button class="md:hidden pb-1 w-6" role="button" aria-label="menu" data-action="click->navbar#toggle">&#9776</button>
     </div>
+  </nav>
+  <!-- //? User menu -->
+  <nav class="hidden bg-white absolute right-3 p-3 border border-gray-300" data-navbar-target="profile">
+    <ul>
+      <li class="my-3 font-bold">
+        <% if current_user %>
+          <span>Hello: <%= current_user.email %></span>
+        <% end %> <hr>
+      </li>
+      <li class="my-4"><%= link_to "Profile", edit_user_registration_path %></li>
+      <!-- update user link -->
+      <li class="my-4">Support</li>
+      <!-- stripe donate -->
+      <%= button_to "log Out", destroy_user_session_path, method: :delete, class: "border rounded-sm border-input-border bg-input-background text-input-border px-4 my-2" %>
+    </ul>
+  </nav>
+  <!-- //? Dropdown menu - mobile -->
+  <nav class="hidden bg-white absolute w-2/3 right-2 h-80 overflow-y-auto rounded-b-sm" data-navbar-target="content">
+    <ul class="flex flex-col py-2 px-3">
+      <%= link_to root_path do %>
+        <li class="flex border border-terminal-window p-2 my-1 rounded-sm">Drivers</li>
+      <% end %>
+    </ul>
   </nav>
 </div>
