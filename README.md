@@ -49,6 +49,13 @@ Stage one is complete minus testing. It is very heavy and frankenstein'ed togeth
     * TruckerJobs4u.com phrase count in about section
 
 * Project board in github setup
+* Admin side created
+  * pagy and ransack configured
+  * Routes and controller actions built
+    * delete newsletter
+    * delete lead
+    * update lead
+  * Alerts and notices modified for admin specific
 
 
 Things you may want to cover:

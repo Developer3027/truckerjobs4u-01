@@ -13,7 +13,7 @@ class LandingController < ApplicationController
       respond_to do |format|
         if @lead.save
           # Send email to admin
-          # LeadMailer.new_lead_email(@lead).deliver_now
+          LeadMailer.new_lead_email(@lead).deliver_now
           # Send email to driver
           DriverMailer.new_driver_email(@lead).deliver_now
           format.html { redirect_to root_path, notice: "Thank you! We will be in touch soon!" }
