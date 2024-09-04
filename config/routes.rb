@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  # get the admin root
+  get "admin", to: "admin#admin", as: :admin
+  # Update action for update note for lead through admin dashboard
+  patch "/admin/update_lead/:id", to: "admin#update_lead", as: :update_lead
+  # Delete action for the destroy newsletter
+  delete '/admin/destroy_newsletter/:id', to: 'admin#destroy_newsletter', as: 'admin_destroy_newsletter'
+  # Delete action for the destroy lead
+  delete '/admin/destroy_lead/:id', to: 'admin#destroy_lead', as: 'admin_destroy_lead'
 
   # Post action for the contact form in landing controller
   post "/landing/lead", to: "landing#create_lead", as: :create_lead
