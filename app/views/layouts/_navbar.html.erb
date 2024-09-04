@@ -31,15 +31,17 @@
   <!-- //? User menu -->
   <nav class="hidden bg-white absolute right-3 p-3 border border-gray-300" data-navbar-target="profile">
     <ul>
-      <li class="my-3 font-bold">
-        <% if current_user %>
-          <span>Hello: <%= current_user.email %></span>
-        <% end %> <hr>
-      </li>
-      <li class="my-4"><%= link_to "Profile", edit_user_registration_path %></li>
+      <% if current_user.role == "admin" %>
+        <li class="my-3 font-bold">
+          <span>Hello: <%= current_user.role %></span>
+        </li>
+        <li>
+          <%= link_to "Dashboard", admin_path %>
+        </li>
+      <% end %> <hr>
       <!-- update user link -->
+      <li class="my-4"><%= link_to "Profile", edit_user_registration_path %></li>
       <li class="my-4">Support</li>
-      <!-- stripe donate -->
       <%= button_to "log Out", destroy_user_session_path, method: :delete, class: "border rounded-sm border-input-border bg-input-background text-input-border px-4 my-2" %>
     </ul>
   </nav>
