@@ -56,6 +56,7 @@ Stage one is complete minus testing. It is very heavy and frankenstein'ed togeth
     * delete lead
     * update lead
   * Alerts and notices modified for admin specific
+  * SEO added to site with meta-tags gem
 
 
 Things you may want to cover:
