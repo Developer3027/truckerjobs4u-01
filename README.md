@@ -58,6 +58,23 @@ Stage one is complete minus testing. It is very heavy and frankenstein'ed togeth
   * Alerts and notices modified for admin specific
   * SEO added to site with meta-tags gem
 
+**9.4.24**
+* Roles
+  * user are the members of the site
+    * can create, update, and delete there information
+    * can manage driving career and resume
+    * access driving tools
+  * admin is the site admin
+    * manage leads
+    * manage stats and site
+  * recruiter working for the users
+    * profile more detailed than users
+    * tools to help hire drivers
+  * advisor handles media
+    * write articles
+    * write newsletters
+    * manage media
+
 
 Things you may want to cover:
 
