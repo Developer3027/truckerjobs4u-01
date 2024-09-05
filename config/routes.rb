@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'privacy', to: 'privacy#index', as: :privacy
 
   # get the admin root
   get "admin", to: "admin#admin", as: :admin

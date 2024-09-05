@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+ h1 {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+ }
+
+ h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+ }
+
+ h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+ }
+
+ h4 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+ }
+
+ p {
+  margin: 1rem 0;
+ }
+
+ ul {
+  margin: 1rem 2rem;
+  list-style-type: disc;
+ }

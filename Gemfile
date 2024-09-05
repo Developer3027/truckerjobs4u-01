@@ -81,3 +81,5 @@ gem "pagy", "~> 9.0"
 gem "ransack", "~> 4.2"
 
 gem "meta-tags", "~> 2.22"
+
+gem "aws-sdk-s3", "~> 1.119", require: false

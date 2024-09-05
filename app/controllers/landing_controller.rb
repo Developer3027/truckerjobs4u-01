@@ -12,7 +12,14 @@ class LandingController < ApplicationController
     else
       respond_to do |format|
         if @lead.save
-          # Send email to admin
+          if lead_params[:create_acct] == "1" || lead_params[:create_acct] == true
+            # Create a new user using the email field from the contact form
+            User.create(email: params[:lead][:lead_email],
+                        password: params[:lead][:last_name],
+                        first_name: params[:lead][:first_name],
+                        last_name: params[:lead][:last_name],
+                        phone: params[:lead][:phone])
+          end
           LeadMailer.new_lead_email(@lead).deliver_now
           # Send email to driver
           DriverMailer.new_driver_email(@lead).deliver_now
@@ -47,7 +54,15 @@ class LandingController < ApplicationController
   private
 
   def lead_params
-    params.require(:lead).permit(:first_name, :last_name, :lead_email, :phone, :location, :note, :pp_check, :commit)
+    params.require(:lead).permit(:first_name,
+                                 :last_name,
+                                 :lead_email,
+                                 :phone,
+                                 :location,
+                                 :note,
+                                 :pp_check,
+                                 :create_acct,
+                                 :commit)
   end
 
   def newsletter_params

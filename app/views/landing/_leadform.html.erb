@@ -38,7 +38,11 @@
   </div>
   <div class="mx-auto max-w-screen-sm text-xs text-left text-gray-300">
     <%= f.check_box :pp_check, checked: true  %>&nbsp; I agree with the
-    <%= link_to "Privacy Policy", root_path, class: "font-medium text-blue-600 text-blue-500 hover:underline" %>.
+    <%= link_to "Privacy Policy", privacy_path, class: "font-medium text-blue-600 text-blue-500 hover:underline" %>.
+  </div>
+  <div class="mx-auto max-w-screen-sm text-xs text-left text-gray-300">
+    <%= f.check_box :create_acct, checked: true  %>&nbsp; Go ahead and 
+    <%= link_to "Create my account", root_path, class: "font-medium text-blue-600 text-blue-500 hover:underline" %>.
   </div>
   <div class="text-xs text-orange-300 text-left pt-2">* Must agree to privacy policy for services *</div>
   <%= f.submit "Send", class: "text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto mt-4 px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800 cursor-pointer" %>
