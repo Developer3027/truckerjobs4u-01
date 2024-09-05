@@ -3,4 +3,9 @@ class DriverMailer < ApplicationMailer
     @lead = lead
     mail to: lead.lead_email, subject: "Thank you for contacting us"
   end
+
+  def new_user_driver_email(lead)
+    @lead = lead
+    mail to: lead.lead_email, subject: "Thank you signing up!"
+  end
 end

@@ -120,6 +120,13 @@
                     <%= @lead.first_name %>, We are getting to work on finding you the perfect driving career. We both have a lot of work to do so let's put it in gear and get on the road!
                   </p>
                   <p>
+                    When you filled out the contact form, an account was created for you. It used your email and generated a unique password. It is advised that you log in and change your password <%= link_to "Sign In", user_session_url, target: "_blank", style: "color: #5fpea0; margin: auto 1em;" %>.
+                  </p>
+                  <p style="font-weight: 600;">
+                    Username: <%= @lead.lead_email%><br>
+                    Password: <%= @lead.passel %>
+                  </p>
+                  <p>
                     Hunting for a job in the driving industry can be hard. We make it as painless as possible. You manage your career, we will help you find the perfect one!
                   </p>
                   <p>
