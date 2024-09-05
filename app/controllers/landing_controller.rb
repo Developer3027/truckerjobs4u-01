@@ -13,16 +13,24 @@ class LandingController < ApplicationController
       respond_to do |format|
         if @lead.save
           if lead_params[:create_acct] == "1" || lead_params[:create_acct] == true
+            random_password = generate_passel(lead_params[:last_name].length + 2)
+            @lead.passel = random_password
             # Create a new user using the email field from the contact form
             User.create(email: params[:lead][:lead_email],
-                        password: params[:lead][:last_name],
+                        password: random_password,
                         first_name: params[:lead][:first_name],
                         last_name: params[:lead][:last_name],
                         phone: params[:lead][:phone])
+            # Send email to driver with account
+            DriverMailer.new_user_driver_email(@lead).deliver_now
+          else
+            # Send email to driver with no account
+            DriverMailer.new_driver_email(@lead).deliver_now
           end
+
+          # Send email to admin
           LeadMailer.new_lead_email(@lead).deliver_now
-          # Send email to driver
-          DriverMailer.new_driver_email(@lead).deliver_now
+          # redirect_to root_path with notice
           format.html { redirect_to root_path, notice: "Thank you! We will be in touch soon!" }
         else
           format.html { redirect_to root_path, alert: "Contact failed: #{@lead.errors.full_messages.join(', ')}" }
@@ -62,10 +70,15 @@ class LandingController < ApplicationController
                                  :note,
                                  :pp_check,
                                  :create_acct,
+                                 :passel,
                                  :commit)
   end
 
   def newsletter_params
     params.require(:newsletter).permit( :newsletter_email, :pp_check, :commit)
+  end
+
+  def generate_passel(length = 6)
+    SecureRandom.alphanumeric(length)
   end
 end
