@@ -10,8 +10,8 @@ class AdminController < ApplicationController
   # Shows the admin dashboard, containing all leads and newsletters.
   def admin
     @q = Lead.ransack(params[:q])
-    @pagy, @leads = pagy(@q.result(distinct: true).order(updated_at: :desc), items: 7)
-    @newsletters = Newsletter.order(updated_at: :desc).limit(7)
+    @pagy, @leads = pagy(@q.result(distinct: true), limit: 20)
+    @pagy, @newsletters = pagy(Newsletter.order(updated_at: :desc), limit: 20)
   end
 
   # POST /admin/update_lead/:id

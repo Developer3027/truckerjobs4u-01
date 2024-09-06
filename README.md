@@ -75,6 +75,15 @@ Stage one is complete minus testing. It is very heavy and frankenstein'ed togeth
     * write newsletters
     * manage media
 
+**9.5.24**
+* Added functionality to contact form that allows the person to opt to create an account by filling out the form.
+* Checkbox defaults to true like privacy policy
+* If false then contact form is still completed and emails mailed as previously.
+* If true then account is created and random password created. Email sent to driver has account information with link back to sign in page.
+* Privacy Policy information created using policy generator.
+* Create account information created that explains perks of account and security.
+* Repaired pagy in admin, added pagy to newsletter
+
 
 Things you may want to cover:
 
