@@ -32,6 +32,7 @@ class User < ApplicationRecord
   # Given a phone number like 5551234567, this method will transform it into
   # (555) 123-4567.
   def format_phone_number
+    return if phone.nil?
     # Remove any non-digit characters from the phone number
     self.phone = self.phone.gsub(/\D/, '')
 

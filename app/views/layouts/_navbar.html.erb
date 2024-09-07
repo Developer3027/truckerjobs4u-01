@@ -10,7 +10,7 @@
     <!-- //? Right section Page Links -->
     <div class="flex flex-grow justify-end">
       <ul class="flex space-x-2">
-        <li class="hidden md:flex"><%= link_to "Blog", root_path %></li>
+        <li class="hidden md:flex"><%= link_to "Blog", blog_path %></li>
         <% if user_signed_in? %>
           <li class="list-none">
             <button role="button" aria-label="menu" data-action="click->navbar#profileToggle">

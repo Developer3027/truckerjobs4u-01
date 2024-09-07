@@ -1,6 +1,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  get 'blog/index'
+  get "blog", to: "blog#index", as: :blog
   # create account page
   get "create_account", to: "create_account#index", as: :create_account
   # privacy page

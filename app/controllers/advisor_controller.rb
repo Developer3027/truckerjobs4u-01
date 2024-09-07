@@ -3,11 +3,12 @@ class AdvisorController < ApplicationController
   before_action :authenticate_staff!
 
   def index
-    @blog = Blog.new # user_signed_in? ? Blog.sorted : Blog.published.sorted
+    @blog = Blog.new
+    @blogs = Blog.order(created_at: :desc)
   end
 
   def create_blog
-    @blog = Blog.create(blog_params)
+    @blog = Blog.new(blog_params)
     @blog.user = current_user
     if @blog.save
       redirect_to advisor_path
