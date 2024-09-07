@@ -12,13 +12,13 @@
       <ul class="flex space-x-2">
         <li class="hidden md:flex"><%= link_to "Blog", root_path %></li>
         <% if user_signed_in? %>
-          <li>
+          <li class="list-none">
             <button role="button" aria-label="menu" data-action="click->navbar#profileToggle">
               <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile-active.svg", size: "24x24", class: "mx-10 md:mx-4") %>
             </button>
           </li>
         <% else %>
-          <li>
+          <li class="list-none">
             <%= link_to user_session_path do %>
               <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile.svg", size: "24x24", class: "mx-10 md:mx-4") %>
             <% end %>

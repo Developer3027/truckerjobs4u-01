@@ -1,7 +1,7 @@
 <section class="bg-white dark:bg-gray-900 mt-20">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
     <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
-      <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-2">Welcome <%= current_user.first_name %> to the Dashboard</h1>
+      <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-2">Welcome <%= current_user.first_name %> <span class="hidden md:inline">to the Dashboard</span></h1>
       <p class="text-lg font-normal text-gray-400 mb-6">This dashboard is for manageing social media for the TruckerJobs4u site. You can manage blog articles and newsletters form here as well as social media content within the site.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
@@ -40,6 +40,15 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<!--New Blog-->
+<section class="w-full flex justify-center items-center text-terminal-window mt-2">
+  <div class="lg:w-4/5 flex justify-center items-center lg:bg-slate-600">
+    <div class="flex flex-col justify-start items-start pb-5">
+      <h1 class="my-2 text-xl bg-sky-50 p-2 rounded-sm">Create New Blog</h1>
+      <%= render "blog_form", blog: @blog %>
     </div>
   </div>
 </section>

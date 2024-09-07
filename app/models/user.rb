@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :blogs, dependent: :destroy
   # Roles for users in app
   enum role: { user: 0, admin: 1, recruiter: 2, advisor: 3 }
 

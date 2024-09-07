@@ -3,9 +3,32 @@ class AdvisorController < ApplicationController
   before_action :authenticate_staff!
 
   def index
+    @blog = Blog.new # user_signed_in? ? Blog.sorted : Blog.published.sorted
+  end
+
+  def create_blog
+    @blog = Blog.create(blog_params)
+    @blog.user = current_user
+    if @blog.save
+      redirect_to advisor_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update_blog
+    if @blog.update(blog_params)
+      redirect_to advisor_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
+
+  def blog_params
+    params.require(:blog).permit(:cover_image, :title, :content, :published_at, :user_id)
+  end
 
   # Before filter to ensure only staff (admins and advisors) can access the
   # advisor dashboard.

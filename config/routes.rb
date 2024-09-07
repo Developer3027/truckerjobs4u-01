@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     root to: "advisor#index", as: :advisor
   end
 
+  # create blog through advisor dashboard
+  post "/advisor/create_blog", to: "advisor#create_blog", as: :advisor_create_blog
+  # update blog through advisor dashboard
+  patch "/advisor/update_blog/:id", to: "advisor#update_blog", as: :advisor_update_blog
+
   devise_for :users
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
