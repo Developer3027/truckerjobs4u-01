@@ -21,6 +21,29 @@
             </svg>
           </a>
         </div>
+        <!--table of blogs-->
+        <div class="flex justify-center items-center text-gray-200 mt-4">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-800">
+              <% @blogs.each do |blog| %>
+                <%= tag.tr(class: cycle("bg-white", "bg-gray-100")) do %>
+                  <td><%= blog.cover_image.present? ? "yes" : "No" %></td>
+                  <td><%= blog.title %></td>
+                  <td><%= sanitize(blog.content.to_s, tags: []).truncate(15) %></td>
+                  <td><%= blog.status %></td>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12">
         <a href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-purple-400 mb-2">

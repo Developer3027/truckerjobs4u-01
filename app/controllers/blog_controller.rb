@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
   def index
-    if user_signed_in? && (current_user.role == "admin" || current_user.role == "advisor")
+    if current_user&.role&.in?(["admin", "advisor"])
       @blog = Blog.sorted
     else
       @blog = Blog.published.sorted

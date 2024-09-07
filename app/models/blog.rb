@@ -23,4 +23,8 @@ class Blog < ApplicationRecord
   def scheduled?
     published_at? && published_at > Time.current
   end
+
+  def status
+    draft? ? "Draft" : scheduled? ? "Scheduled" : published? ? "Published" : "Unknown"
+  end
 end
