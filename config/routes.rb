@@ -1,5 +1,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  get 'blog/index'
   # create account page
   get "create_account", to: "create_account#index", as: :create_account
   # privacy page
@@ -18,6 +19,11 @@ Rails.application.routes.draw do
   post "/landing/lead", to: "landing#create_lead", as: :create_lead
   # Post action for the newsletter form in landing controller
   post "/landing/newsletter", to: "landing#create_newsletter", as: :create_newsletter
+
+  # Root route for advisor
+  authenticated :user, lambda { |u| u.role == "advisor" } do
+    root to: "advisor#index", as: :advisor
+  end
 
   devise_for :users
 

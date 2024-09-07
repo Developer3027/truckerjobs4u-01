@@ -1,43 +1,121 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="flex flex-col justify-start items-center mt-20">
+  <%= render "devise/shared/error_messages",class: "text-red-400", resource: resource %>
+  <h1 class="text-gray-100 py-4">Welcome <%= current_user.first_name? ? current_user.first_name : current_user.email %></h1>
+  <!--Top two columns on desktop-->
+  <div class="flex justify-evenly items-center w-full">
+    <div class="flex justify-center items-start w-2/5 h-full min-h-svh">
+      <div class="w-full max-w-sm rounded-lg shadow bg-gray-800 border-gray-700">
+        <div class="flex flex-col items-center py-10">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <div class="flex justify-evenly items-center w-full">
+              <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
+              <span class="text-gray-400"><%= current_user.role %></span>
+            </div>
+            <div class="flex flex-col items-center">
+              <% if !current_user.first_name || !current_user.last_name || !current_user.phone %>
+                <%= f.text_field :first_name, autofocus: true, autocomplete: "First Name", placeholder: "John", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+                <%= f.text_field :last_name, autocomplete: "Last Name", placeholder: "Smith", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+                <%= f.email_field :email, autocomplete: "Email", placeholder: "Email", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+                <%= f.text_field :phone, autocomplete: "Phone", placeholder: "(888) 555-5555", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+              <% else %>
+                <div class="flex mb-2">
+                  <h3 class="text-gray-200"><%= current_user.first_name %></h3>
+                  &nbsp;
+                  <h3 class="text-gray-200"><%= current_user.last_name %></h3>
+                </div>
+                <div class="flex flex-col justify-center items-center text-gray-200">
+                  <span><%= current_user.email %></span>
+                  <span><%= current_user.phone %></span>
+                </div>
+              <% end %>
+              <hr class="border border-gray-400 my-4 mx-2 w-full"/>
+            </div>
+            <div class="flex flex-col justify-center items-start px-4 text-gray-200">
+              <h3 class="text-gray-200">
+                Change password
+              </h3>
+              <div class="border border-gray-400 rounded p-4 mb-4">
+                <%= f.label :password %><br />
+                <i class="text-sm">(leave blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+              </div>
+              <%= f.label :current_password %> <i class="text-sm text-yellow-400">(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "bg-gray-700 text-gray-200 rounded mb-1" %>
+            </div>
+            <div class="flex justify-evenly items-center mt-4 md:mt-6">
+              <%= f.submit "Update Info", class: "inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800 cursor-pointer" %>
+              <%= button_to "Cancel my account",  registration_path(resource_name), class: "py-2 px-4 ms-2 text-sm font-medium focus:outline-none rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-700 bg-gray-800 text-rose-400 border-gray-600 hover:text-white hover:bg-red-700", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-start w-3/5 h-full min-h-svh">
+      <!--CTA Card-->
+      <% if current_user.role == "user" %>
+        <div class="w-full max-w-xl p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
+          <h5 class="mb-2 text-3xl font-bold text-white">Where do you want to go?</h5>
+          <p class="mb-5 text-base sm:text-lg text-gray-400">When job hunting it is all about the information. Your driving history and license info is your sales pitch. Let's get to work and find you that great career.</p>
+          <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+            <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Step 1</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">General Info</div>
+              </div>
+            </a>
+            <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Step 2</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">Get Indepth</div>
+              </div>
+            </a>
+            <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Get Serious</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">Browse Jobs</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      <% end %>
+      <% if current_user.role == "admin" %>
+        <h1 class="text-gray-200">Admin</h1>
+      <% end %>
+      <% if current_user.role == "recruiter" %>
+        <h1>Recruiter</h1>
+      <% end %>
+      <% if current_user.role == "advisor" %>
+        <div class="w-full max-w-xl p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
+          <h5 class="mb-2 text-3xl font-bold text-white">Where do you want to go?</h5>
+          <p class="mb-5 text-base sm:text-lg text-gray-400">As an advisor you have control over the Social Media of the site. Which media do you want to work on?</p>
+          <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+            <%= link_to advisor_path, class: "w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700" do %>
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Dashboard</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">Manage Blog</div>
+              </div>
+            <% end %>
+            <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Dashboard</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">Manage Newsletter</div>
+              </div>
+            </a>
+            <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+              <div class="text-left rtl:text-right">
+                <div class="mb-1 text-xs">Dashboard</div>
+                <div class="-mt-1 font-sans text-sm font-semibold">Site Stats</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</section>
