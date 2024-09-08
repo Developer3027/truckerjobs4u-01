@@ -35,8 +35,12 @@ Rails.application.routes.draw do
   post "create_blog", to: "advisor#create_blog", as: :advisor_create_blog
   # update blog through advisor dashboard
   patch "update_blog/:id", to: "advisor#update_blog", as: :advisor_update_blog
+  # delete blog through advisor dashboard
+  delete "destroy_blog/:id", to: "advisor#destroy_blog", as: :advisor_destroy_blog
   # delete cover image through advisor dashboard
-  resource :cover_image_delete, only: [:destroy], module: :blog
+  resources :blog do
+    resources :cover_images, only: [:destroy], module: :blog
+  end
 
   devise_for :users
 

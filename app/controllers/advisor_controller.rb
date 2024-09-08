@@ -2,6 +2,7 @@ class AdvisorController < ApplicationController
   # Only allow admins to access the admin dashboard
   before_action :authenticate_staff!
 
+
   def index
     @blog = Blog.new
     @blogs = Blog.order(created_at: :desc)
@@ -23,18 +24,25 @@ class AdvisorController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user = current_user
     if @blog.save
-      redirect_to advisor_path
+      redirect_to advisor_list_blogs_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update_blog
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to advisor_path
+      redirect_to advisor_list_blogs_path
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy_blog
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+    redirect_to advisor_list_blogs_path
   end
 
   private

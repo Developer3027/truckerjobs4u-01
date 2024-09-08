@@ -1,45 +1,43 @@
-<%= turbo_frame_tag :blog_main do %>
-  <div class="flex justify-center items-center lg:bg-slate-600">
-    <div class="flex flex-col justify-start items-start pb-5">
-      <h1 class="my-2 text-xl bg-sky-50 p-2 rounded-sm">Create New Blog</h1>
-      <%= form_with(model: @blog, url: advisor_create_blog_path) do |f| %>
-        <% if f.object.errors.any? %>
-          <div>
-            <% f.object.errors.full_messages.each do |message|  %>
-              <div class="text-red-500"><%= message %></div>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="flex flex-col my-2 lg:mx-5 bg-slate-100 p-2 rounded-sm">
-          <div class="text-lg">
-            <%= f.label :cover_image %>
-          </div>
-          <% if @blog.cover_image.present? %>
-            <div id="<%= dom_id(blog, :cover_image) %>" class="flex flex-col justify-center items-center">
-              <%= image_tag blog.cover_image, class: "w-1/3 py-2" %>
-              <%= link_to "Remove cover image", cover_image_delete_path(blog), class: "border border-input-background rounded bg-red-400 py-1 px-2 my-2", data: { turbo_method: :delete, turbo_confirm: "are you sure?" } %>
-            </div>
+<section class="flex justify-center items-center lg:bg-slate-600 min-h-[calc(100vh-88px)]">
+  <div class="flex flex-col justify-start items-start pb-5">
+    <h1 class="my-2 text-xl bg-sky-50 p-2 rounded-sm">Create New Blog</h1>
+    <%= form_with(model: @blog, url: advisor_create_blog_path) do |f| %>
+      <% if f.object.errors.any? %>
+        <div>
+          <% f.object.errors.full_messages.each do |message|  %>
+            <div class="text-red-500"><%= message %></div>
           <% end %>
-          <div class="rounded p-2">
-            <%= f.file_field :cover_image %>
-          </div>
-          <div class="my-2">
-            <%= f.label :title, class: "bg-slate-600 text-slate-50 font-bold py-2 px-2 pe-2 rounded" %>
-            <%= f.text_field :title, class: "rounded" %>
-          </div>
-          <div class="flex flex-col justify-center items-center w-full lg:w-4-5">
-            <%= f.label :body %>
-            <%= f.rich_text_area :content, class: "custom-min-height bg-slate-50 w-full" %>
-          </div>
-          <div class="flex justify-center items-center w-full my-4">
-            <%= f.label :published_at, class: "bg-slate-600 text-slate-50 font-bold py-2 px-2 m-2 rounded" %>
-            <%= f.datetime_select :published_at, include_blank: true %>
-          </div>
-          <div class="flex justify-center items-center w-full">
-            <%= f.button class: "border border-input-background rounded bg-sky-400 py-2 px-4 my-2" %>
-          </div>
         </div>
       <% end %>
-    </div>
+      <div class="flex flex-col my-2 lg:mx-5 bg-slate-100 p-2 rounded-sm">
+        <div class="text-lg">
+          <%= f.label :cover_image %>
+        </div>
+        <% if @blog.cover_image.present? %>
+          <div id="<%= dom_id(blog, :cover_image) %>" class="flex flex-col justify-center items-center">
+            <%= image_tag blog.cover_image, class: "w-1/3 py-2" %>
+            <%= link_to "Remove cover image", cover_image_delete_path(blog), class: "border border-input-background rounded bg-red-400 py-1 px-2 my-2", data: { turbo_method: :delete, turbo_confirm: "are you sure?" } %>
+          </div>
+        <% end %>
+        <div class="rounded p-2">
+          <%= f.file_field :cover_image %>
+        </div>
+        <div class="my-2">
+          <%= f.label :title, class: "bg-slate-600 text-slate-50 font-bold py-2 px-2 pe-2 rounded" %>
+          <%= f.text_field :title, class: "rounded" %>
+        </div>
+        <div class="flex flex-col justify-center items-center w-full lg:w-4-5 max-w-2xl">
+          <%= f.label :body %>
+          <%= f.rich_text_area :content, class: "custom-min-height bg-slate-50 w-full" %>
+        </div>
+        <div class="flex justify-center items-center w-full my-4">
+          <%= f.label :published_at, class: "bg-slate-600 text-slate-50 font-bold py-2 px-2 m-2 rounded" %>
+          <%= f.datetime_select :published_at, include_blank: true %>
+        </div>
+        <div class="flex justify-center items-center w-full">
+          <%= f.button class: "border border-input-background rounded bg-sky-400 py-2 px-4 my-2" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>

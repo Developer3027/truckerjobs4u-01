@@ -1,4 +1,4 @@
-class BlogPosts::CoverImagesController < ApplicationController
+class Blog::CoverImagesController < ApplicationController
   include ActionView::RecordIdentifier
 
   before_action :authenticate_user!
