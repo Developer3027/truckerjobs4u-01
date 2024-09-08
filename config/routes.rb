@@ -25,10 +25,18 @@ Rails.application.routes.draw do
     root to: "advisor#index", as: :advisor
   end
 
+  # Route for new blog
+  get "new_blog", to: "advisor#new_blog", as: :advisor_new_blog
+  # Route for list of blogs
+  get "list_blogs", to: "advisor#list_blogs", as: :advisor_list_blogs
+  # Route for edit blog
+  get "edit_blog/:id", to: "advisor#edit_blog", as: :advisor_edit_blog
   # create blog through advisor dashboard
-  post "/advisor/create_blog", to: "advisor#create_blog", as: :advisor_create_blog
+  post "create_blog", to: "advisor#create_blog", as: :advisor_create_blog
   # update blog through advisor dashboard
-  patch "/advisor/update_blog/:id", to: "advisor#update_blog", as: :advisor_update_blog
+  patch "update_blog/:id", to: "advisor#update_blog", as: :advisor_update_blog
+  # delete cover image through advisor dashboard
+  resource :cover_image_delete, only: [:destroy], module: :blog
 
   devise_for :users
 

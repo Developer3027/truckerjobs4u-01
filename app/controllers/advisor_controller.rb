@@ -7,6 +7,20 @@ class AdvisorController < ApplicationController
     @blogs = Blog.order(created_at: :desc)
   end
 
+  def new_blog
+    @blog = Blog.new
+    render turbo_stream: turbo_stream.update(:blog_main, template: 'advisor/new_blog', locals: { blog: @blog })
+  end
+
+  def list_blogs
+    @blogs = Blog.all
+  end
+
+  def edit_blog
+    @blog = Blog.find(params[:id])
+    render turbo_stream: turbo_stream.update(:blog_main, template: 'advisor/new_blog', locals: { blog: @blog })
+  end
+
   def create_blog
     @blog = Blog.new(blog_params)
     @blog.user = current_user
