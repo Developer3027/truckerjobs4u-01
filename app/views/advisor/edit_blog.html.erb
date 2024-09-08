@@ -1,10 +1,10 @@
-<% turbo_frame_tag :edit_blog do %>
+<% turbo_frame_tag :blog_main do %>
   <% if @blog.user.first_name == current_user.first_name %>
     <main class="w-full flex justify-center items-center text-terminal-window mt-2">
       <div class="lg:w-4/5 flex justify-center items-center lg:bg-slate-600">
         <div class="flex flex-col justify-start items-start pb-5">
           <h1 class="m-2 text-xl bg-sky-50 p-2 rounded-sm">Edit Article ( no. <%= @blog.id %> )</h1>
-          <%= form_with model: @blog do |form| %>
+          <%= form_with(model: @blog, url: advisor_edit_blog_path) do |form| %>
             <% if form.object.errors.any? %>
               <div>
                 <% form.object.errors.full_messages.each do |message|  %>

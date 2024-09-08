@@ -9,7 +9,6 @@ class AdvisorController < ApplicationController
 
   def new_blog
     @blog = Blog.new
-    render turbo_stream: turbo_stream.update(:blog_main, template: 'advisor/new_blog', locals: { blog: @blog })
   end
 
   def list_blogs
@@ -18,7 +17,6 @@ class AdvisorController < ApplicationController
 
   def edit_blog
     @blog = Blog.find(params[:id])
-    render turbo_stream: turbo_stream.update(:blog_main, template: 'advisor/new_blog', locals: { blog: @blog })
   end
 
   def create_blog
