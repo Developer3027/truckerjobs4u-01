@@ -1,7 +1,7 @@
 <!--hero-->
 <section id="hero" class="mt-20 w-full min-h-svh bg-zinc-950 bg-no-repeat bg-center bg-cover bg-[url('https://blog3169.s3.us-east-2.amazonaws.com/w3070.webp')]">
   <div class="flex justify-center items-center py-8 px-4 w-full min-h-svh lg:py-16 z-10 bg-gradient-to-br from-orange-400/40 via-teal-950/20 to-gray-500/30 relative">
-    <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded">
+    <div class="flex flex-col justify-center items-center lg:w-fit text-center md:mt-44 lg:mt-60 bg-slate-900/50 px-2 py-5 rounded-lg">
       <% if notice.present? %>
         <p class="py-2 px-3 bg-black mb-5 text-teal-400 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
       <% end %>
@@ -342,18 +342,21 @@
         </div>
         <div class="flex flex-col justify-center items-center">
           <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg lg:ml-6">
-            <h2 class="text-2xl font-bold text-white">
+            <h2 class="flex flex-col text-2xl font-bold text-white">
               Contact Us.
             </h2>
-            <small class="text-white">Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!</small></br>
-          <small class="text-gray-300">
-            [<span class="text-orange-300"> * </span>] indicates required
-          </small>
-          <%= render "leadform" %>
+            <div class="flex flex-col">
+              <small class="text-white">
+                Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!
+              </small>
+              <small class="text-gray-300">
+                [<span class="text-orange-300"> * </span>] indicates required
+              </small>
+            </div>
+            <%= render "leadform" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </section>

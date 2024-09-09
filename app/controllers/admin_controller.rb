@@ -10,8 +10,8 @@ class AdminController < ApplicationController
   # Shows the admin dashboard, containing all leads and newsletters.
   def admin
     @q = Lead.ransack(params[:q])
-    @pagy, @leads = pagy(@q.result(distinct: true), limit: 20)
-    @pagy, @newsletters = pagy(Newsletter.order(updated_at: :desc), limit: 20)
+    @pagy_leads, @leads = pagy(@q.result(distinct: true), limit: 20, params: { pagy_leads: true })
+    @pagy_newsletters, @newsletters = pagy(Newsletter.order(updated_at: :desc), limit: 20, params: { pagy_newsletters: true })
   end
 
   # POST /admin/update_lead/:id
@@ -59,10 +59,15 @@ class AdminController < ApplicationController
   end
 
   private
-  # If the user is not signed in or the user is not an admin, redirect to the root path
-  # and alert the user that they are not authorized to access the page.
+
+  # Before filter to ensure only admins can access the
+  # admin dashboard.
+  #
+  # If the user is not signed in or the user is not an admin, redirect
+  # to the root path and alert the user that they are not authorized to access
+  # the page.
   def authenticate_admin!
-    if !user_signed_in? || current_user.role != "admin"
+    if !user_signed_in? || !["admin"].include?(current_user.role)
       flash[:alert] = "You are not authorized to access this page."
       redirect_to root_path
     end

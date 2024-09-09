@@ -13,8 +13,8 @@ class LandingController < ApplicationController
       respond_to do |format|
         if @lead.save
           if lead_params[:create_acct] == "1" || lead_params[:create_acct] == true
-            random_password = generate_passel(lead_params[:last_name].length + 2)
-            @lead.passel = random_password
+            random_password = generate_passel(lead_params[:last_name].length + 3)
+            @lead.update(passel: random_password)
             # Create a new user using the email field from the contact form
             User.create(email: params[:lead][:lead_email],
                         password: random_password,
