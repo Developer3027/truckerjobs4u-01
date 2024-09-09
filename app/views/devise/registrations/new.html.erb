@@ -1,29 +1,85 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section id="contact" class="w-full pt-2 bg-zinc-950 mt-20 min-h-[calc(100vh-88px)]">
+  <div class="flex flex-col justify-center items-center">
+    <div class="w-full lg:max-w-4xl my-10 p-4 text-center border rounded-lg shadow sm:p-8 bg-gray-900 border-gray-700">
+      <div class="grid sm:grid-cols-2">
+        <div class="hidden md:block mx-auto my-auto">
+          <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/StockCake-Sunset+Truck+Interior_1722132169.jpg", class: "rounded-lg w-72 sm:w-full", alt: "big rig interior of driver seat") %>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+          <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 rounded-lg lg:ml-6">
+            <h2 class="flex flex-col text-2xl font-bold text-white">
+              Create Account.
+            </h2>
+            <div class="flex flex-col">
+              <small class="text-white">
+                Are you ready to jump in the driver's seat of your career? We would love to hear from you. Let's get to work on your new career today!
+              </small>
+              <small class="text-gray-300">
+                [<span class="text-orange-300"> * </span>] indicates required
+              </small>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="flex flex-col sm:flex-row w-full">
+                <div class="mb-5 text-start mr-1">
+                  <div class="flex">
+                    <%= f.label :first_name, "First Name", for: "first_name", class: "block mb-2 text-sm font-medium text-white" %>
+                    <span class="text-orange-300 pl-2">*</span>
+                  </div>
+                  <%= f.text_field :first_name, id: "first_name", placeholder: "John", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div class="mb-5 text-start ml-1">
+                  <div class="flex">
+                    <%= f.label :last_name, "Last Name", for: "last_name", class: "block mb-2 text-sm font-medium text-white" %>
+                    <span class="text-orange-300 pl-2">*</span>
+                  </div>
+                  <%= f.text_field :last_name, id: "last_name", placeholder: "Smith", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+              </div>
+              <div class="mb-5 text-start">
+                <div class="flex">
+                  <%= f.label :email, "Email", for: "lead_email", class: "block mb-2 text-sm font-medium text-white" %>
+                  <span class="text-orange-300 pl-2">*</span>
+                </div>
+                <%= f.email_field :email, id: "email", placeholder: "name@example.com", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+              </div>
+              <div class="mb-5 text-start">
+                <div class="flex">
+                  <%= f.label :phone, "Phone", for: "phone", class: "block mb-2 text-sm font-medium text-white" %>
+                  <span class="text-orange-300 pl-2">*</span>
+                </div>
+                <%= f.text_field :phone, id: "phone", placeholder: "555 888 1234", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+              </div>
+              <div class="mb-5 text-start">
+                <div class="flex">
+                  <%= f.label :password, "Password", for: "password", class: "block mb-2 text-sm font-medium text-white" %>
+                  <span class="text-orange-300 pl-2">*</span>
+                </div>
+                <% if @minimum_password_length %>
+                  <em class="text-gray-400 text-sm">(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, id: "password", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+              </div>
+              <div class="mb-5 text-start">
+                <div class="flex">
+                  <%= f.label :password_confirmation, "Confirm Password", for: "password_confirmation", class: "block mb-2 text-sm font-medium text-white" %>
+                  <span class="text-orange-300 pl-2">*</span>
+                </div>
+                <%= f.password_field :password_confirmation, id: "confirm_password", autocomplete: "off", class: " border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+              </div>
+              <!--Privacy and account here-->
+              <div class="actions">
+                <%= f.submit "Sign up", class: "font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800" %>
+              </div>
+            <% end %>
+            <div class="flex flex-col border border-gray-600 rounded-lg p-4">
+              <%= link_to "Sign in with account", new_user_session_path, class: "text-blue-300 py-4" %>
+              <%= link_to "Review the Privacy Policy", privacy_path, class: "text-blue-600 text-xs" %>
+              <%= link_to "Review the account information", create_account_path, class: "text-blue-600 text-xs" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
