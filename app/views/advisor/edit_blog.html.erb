@@ -1,6 +1,6 @@
 <section class="bg-gray-900 mt-20 min-h-[calc(100vh-88px)]">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-    <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+    <div class="bg-gray-800 border border-gray-700 rounded-lg lg:p-8 md:p-12 mb-8">
       <% if @blog.user.first_name == current_user.first_name %>
         <div class="flex flex-col justify-center items-center pb-5">
           <h1 class="m-2 text-gray-400 p-2 rounded-sm">Edit Article ( no. <%= @blog.id %> )</h1>
@@ -14,7 +14,7 @@
               </div>
             <% end %>
             <!---->
-            <div class="flex flex-col my-2 lg:mx-5 p-4 rounded-lg border border-gray-700">
+            <div class="flex flex-col my-2 lg:mx-5 lg:p-4 rounded-lg border border-gray-700">
               <div class="text-lg text-gray-400 bg-gray-600 border border-gray-700 rounded-lg p-2">
                 <%= form.label :cover_image, class: "text-2xl" %>
                 <% if @blog.cover_image.present? %>
@@ -31,7 +31,7 @@
                 <%= form.label :title, class: "block mb-2 text-sm font-medium text-white" %>
                 <%= form.text_field :title, class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
               </div>
-              <div class="my-2 w-full lg:w-4-5">
+              <div class="hidden md:block my-2 w-full lg:w-4-5 text-white">
                 <%= form.label :body, class: "block mb-2 text-sm font-medium text-white" %>
                 <%= form.rich_text_area :body, class: "block p-2.5 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 max-w-2xl" %>
               </div>
