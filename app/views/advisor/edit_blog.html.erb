@@ -31,16 +31,16 @@
                 <%= form.label :title, class: "block mb-2 text-sm font-medium text-white" %>
                 <%= form.text_field :title, class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
               </div>
-              <div class="hidden md:block my-2 w-full lg:w-4-5 text-white">
-                <%= form.label :body, class: "block mb-2 text-sm font-medium text-white" %>
-                <%= form.rich_text_area :body, class: "block p-2.5 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 max-w-2xl" %>
+              <div class="hidden md:block my-2 w-full lg:w-4-5 text-white bg-gray-600 p-2 rounded-lg">
+                <%= form.label :content, class: "block mb-2 text-sm font-medium text-white" %>
+                <%= form.rich_text_area :content, class: "block p-2.5 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 max-w-2xl" %>
               </div>
               <div class="flex justify-center items-center w-full my-4">
                 <%= form.label :published_at, class: "bg-slate-600 text-slate-50 font-bold py-2 px-2 m-2 rounded" %>
                 <%= form.datetime_select :published_at, include_blank: true %>
               </div>
               <div class="flex justify-center items-center w-full">
-                <%= form.button class: "border border-input-background rounded bg-sky-400 py-2 px-4 my-2" %>
+                <%= form.button class: "border border-input-background rounded bg-green-500 font-semibold py-2 px-4 my-2" %>
               </div>
             </div>
           <% end %>
