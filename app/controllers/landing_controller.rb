@@ -7,21 +7,24 @@ class LandingController < ApplicationController
   def create_lead
     @lead = Lead.new(lead_params)
 
+    if lead_params[:create_acct] == "1" || lead_params[:create_acct] == true
+      @random_password = generate_passel(lead_params[:last_name].length + 3)
+      @user = User.create!(email: params[:lead][:lead_email],
+                        password: @random_password,
+                        first_name: params[:lead][:first_name],
+                        last_name: params[:lead][:last_name],
+                        phone: params[:lead][:phone])
+      @lead.user = @user
+    end
+
     if lead_params[:pp_check] == "0" || lead_params[:pp_check] == false
       redirect_to root_path, alert: "Please check the privacy policy"
     else
       respond_to do |format|
         if @lead.save
           if lead_params[:create_acct] == "1" || lead_params[:create_acct] == true
-            random_password = generate_passel(lead_params[:last_name].length + 3)
-            @lead.update(passel: random_password)
-            # Create a new user using the email field from the contact form
-            User.create(email: params[:lead][:lead_email],
-                        password: random_password,
-                        first_name: params[:lead][:first_name],
-                        last_name: params[:lead][:last_name],
-                        phone: params[:lead][:phone])
-            # Send email to driver with account
+            delete_date = @lead.created_at + 30.days
+            @lead.update(delete_account_date: delete_date, passel: @random_password)
             DriverMailer.new_user_driver_email(@lead).deliver_now
           else
             # Send email to driver with no account
@@ -33,6 +36,7 @@ class LandingController < ApplicationController
           # redirect_to root_path with notice
           format.html { redirect_to root_path, notice: "Thank you! We will be in touch soon!" }
         else
+          puts "Lead save failed: #{@lead.errors.full_messages.join(', ')}"
           format.html { redirect_to root_path, alert: "Contact failed: #{@lead.errors.full_messages.join(', ')}" }
         end
       end
@@ -71,6 +75,7 @@ class LandingController < ApplicationController
                                  :pp_check,
                                  :create_acct,
                                  :passel,
+                                 :delete_account_date,
                                  :commit)
   end
 

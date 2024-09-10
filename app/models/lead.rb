@@ -5,7 +5,10 @@ class Lead < ApplicationRecord
   # Validate form fields
   validates :first_name, :last_name, :lead_email, :phone, :location, presence: true
 
-  # ransack
+  # associations with user
+  belongs_to :user
+
+  # ransack - create a hash of attributes that can be searched
   def self.ransackable_attributes(auth_object = nil)
     %w[created_at updated_at first_name last_name lead_email phone location note pp_check]
   end
