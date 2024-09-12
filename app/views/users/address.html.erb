@@ -1,0 +1,70 @@
+<section class="bg-gray-900 mt-20 min-h-[calc(100vh-88px)]">
+  <div class="py-8 sm:px-4 mx-auto max-w-3xl lg:py-16">
+    <div class="bg-gray-800 border border-gray-700 rounded-lg lg:p-8 md:p-12 mb-8 mx-2 p-2">
+      <div class="flex flex-col justify-center items-center pb-5">
+        <h1 class="m-2 text-gray-400 p-2 text-base sm:text-lg md:text-2xl">Current Address</h1>
+        <!--New Form-->
+        <%= form_with(model: @address, url: create_address_path) do |f| %>
+          <!--Errors-->
+          <% if f.object.errors.any? %>
+            <div>
+              <% f.object.errors.full_messages.each do |message|  %>
+                <div class="text-red-500"><%= message %></div>
+              <% end %>
+            </div>
+          <% end %>
+          <!---->
+          <div class="flex flex-col my-2 lg:mx-5 md:p-4 rounded-lg md:border border-gray-700">
+            <div class="border border-gray-600 rounded-lg m-2 p-1">
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Full Name: </h4>
+                <%= @user.full_name %>
+              </div>
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Email: </h4>
+                <%= @user.email %>
+              </div>
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Phone: </h4>
+                <%= @user.phone %>
+              </div>
+            </div>
+            <div class="m-2">
+              <%= f.label :address_1, "Address", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :address_1, placeholder: "1688 Saramento St.", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-2">
+              <%= f.label :address_2, "Address line 2", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :address_2, placeholder: "# 32", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-2">
+              <%= f.label :city, "City", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :city, placeholder: "San Francisco", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-2">
+              <%= f.label :state, "State", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :state, placeholder: "CA", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-2">
+              <%= f.label :zip, "Zip Code", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :zip, placeholder: "94109", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-2">
+              <%= f.label :country, "Country", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.text_field :country, placeholder: "United States", class: "border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="text-white m-2">
+              <%= f.label :current, "Current Address" %>
+              <%= f.check_box :current, checked: true  %>
+              <p class="text-xs text-orange-300 text-left">* Yes is checked, no is not checked *</p>
+            </div>
+            <div class="flex justify-center items-center w-full">
+              <%= f.button class: "border rounded bg-green-500 font-semibold py-2 px-4 my-2" %>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to "Return Home", root_path, class: "border rounded bg-gray-500 text-gray-50 font-semibold py-2 px-4 my-2" %>
+      </div>
+    </div>
+  </div>
+</section>
