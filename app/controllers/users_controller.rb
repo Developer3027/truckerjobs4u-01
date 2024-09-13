@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def license_params
-    params.require(:license).permit(:dob, :lic_class, :lic_exp, :millitary, :veteran, :user_id, lic_endorsements: [])
+    params.require(:license).permit(:dob, :lic_class, :lic_exp, :military, :veteran, :user_id, lic_endorsements: [])
   end
 
   def authenticate_staff!
