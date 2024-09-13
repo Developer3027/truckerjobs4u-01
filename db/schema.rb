@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_224022) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_033109) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224022) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.boolean "current"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.datetime "published_at"
@@ -79,6 +93,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224022) do
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
+  create_table "licenses", force: :cascade do |t|
+    t.date "dob"
+    t.string "lic_class"
+    t.string "lic_exp"
+    t.text "lic_endorsements", default: [], array: true
+    t.boolean "military"
+    t.boolean "veteran"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_licenses_on_user_id"
+  end
+
   create_table "newsletters", force: :cascade do |t|
     t.string "newsletter_email"
     t.boolean "pp_check"
@@ -99,12 +126,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_224022) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
+    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "users"
   add_foreign_key "blogs", "users"
   add_foreign_key "leads", "users"
+  add_foreign_key "licenses", "users"
 end

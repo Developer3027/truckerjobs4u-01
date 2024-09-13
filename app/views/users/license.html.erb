@@ -1,0 +1,86 @@
+<section class="flex justify-center items-center bg-gray-900 mt-20 min-h-[calc(100vh-88px)]">
+  <div class="py-8 sm:px-4 mx-auto lg:py-16">
+    <div class="bg-gray-800 border border-gray-700 rounded-lg lg:p-8 md:p-12 mb-8 mx-2 p-2">
+      <div class="flex flex-col justify-center items-center pb-5 max-w-3xl">
+        <h1 class="m-2 text-gray-400 p-2 text-base sm:text-lg md:text-2xl">License Information</h1>
+        <!--New Form-->
+        <%= form_with(model: @license, url: create_license_path) do |f| %>
+          <!--Errors-->
+          <% if f.object.errors.any? %>
+            <div>
+              <% f.object.errors.full_messages.each do |message|  %>
+                <div class="text-red-500"><%= message %></div>
+              <% end %>
+            </div>
+          <% end %>
+          <!---->
+          <div class="flex flex-col my-2 lg:mx-5 md:p-4 rounded-lg md:border border-gray-700">
+            <div class="border border-gray-600 rounded-lg m-2 p-1">
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Full Name: </h4>
+                <%= @user.full_name %>
+              </div>
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Email: </h4>
+                <%= @user.email %>
+              </div>
+              <div class="flex text-gray-200 m-1">
+                <h4 class="text-gray-400 mx-1">Phone: </h4>
+                <%= @user.phone %><%= f.label :lic_exp, "Experience", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              </div>
+              <% if current_user.address.present? %>
+                <div class="flex text-gray-200 m-1">
+                  <h4 class="text-gray-400 mx-1">Address: </h4>
+                  <%= current_user.address.first.address_1 %>&nbsp;<%= current_user.address.first.address_2 %>
+                </div>
+                <div class="flex text-gray-200 m-1">
+                  <h4 class="text-gray-400 mx-1">City State, Zip: </h4>
+                  <%= current_user.address.first.city %>&nbsp;<%= current_user.address.first.zip%>
+                </div>
+                <div class="flex text-gray-200 m-1">
+                  <h4 class="text-gray-400 mx-1">Country: </h4>
+                  <%= current_user.address.first.country %>
+                </div>
+              <% end %>
+            </div>
+            <div class="m-1">
+              <%= f.label :dob, "Date of Birth", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.date_field :dob, placeholder: "05/15/2001.", class: "block w-full border text-sm rounded-lg p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" %>
+            </div>
+            <div class="m-1">
+              <%= f.label :lic_class, "License Class", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.select :lic_class, options_for_select(License.lic_classes), :include_blank => true %>
+            </div>
+            <div class="m-1">
+              <%= f.label :lic_exp, "Experience", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <%= f.select :lic_exp, options_for_select(License.years_exp), :include_blank => true %>
+            </div>
+            <div class="flex flex-col justify-center items-start text-gray-300 m-1">
+              <%= f.label :lic_endorsements, "Endorsements", class: "block mb-2 text-sm font-medium text-white px-3" %>
+              <div class="flex flex-wrap m-1 px-2">
+                <% License::LIC_ENDORSEMENTS.each do |key| %>
+                  <%= f.check_box :lic_endorsements, { multiple: true, checked: f.object.lic_endorsements&.include?(key.to_s) }, key, nil %>
+                  <%= f.label key, class: "text-sm font-medium text-white ps-1 pe-3" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="text-white m-1 px-3">
+              <%= f.check_box :military, checked: false, value: false  %>
+              <%= f.label :military, "Current Military?" %>
+              <p class="text-xs text-orange-300 text-left">* Yes is checked, no is not checked *</p>
+            </div>
+            <div class="text-white m-1 px-3">
+              <%= f.check_box :veteran, checked: false, value: false  %>
+              <%= f.label :veteran, "Veteran?" %>
+              <p class="text-xs text-orange-300 text-left">* Yes is checked, no is not checked *</p>
+            </div>
+            <div class="flex justify-center items-center w-full">
+              <%= f.button "Submit License", class: "border rounded bg-green-500 font-semibold py-2 px-4 my-2" %>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to "Return Home", root_path, class: "border rounded bg-gray-500 text-gray-50 font-semibold py-2 px-4 my-2" %>
+      </div>
+    </div>
+  </div>
+</section>

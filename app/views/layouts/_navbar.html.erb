@@ -8,13 +8,19 @@
       <% end %>
     </div>
     <!-- //? Right section Page Links -->
-    <div class="flex flex-grow justify-end">
+    <div class="flex flex-grow justify-end items-center">
       <ul class="flex space-x-2">
         <li class="hidden md:flex"><%= link_to "Blog", blog_path %></li>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.avatar.present? %>
           <li class="list-none">
             <button role="button" aria-label="menu" data-action="click->navbar#profileToggle">
-              <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile-active.svg", size: "24x24", class: "mx-10 md:mx-4") %>
+              <%= image_tag(current_user.avatar, size: "32x32", class: "mx-10 md:mx-4 rounded-full border border-gray-400") %>
+            </button>
+          </li>
+        <% elsif user_signed_in? && !current_user.avatar.present? %>
+          <li class="list-none">
+            <button role="button" aria-label="menu" data-action="click->navbar#profileToggle">
+              <%= image_tag("https://blog3169.s3.us-east-2.amazonaws.com/Profile-active.svg", size: "32x32", class: "mx-10 md:mx-4 rounded-full border border-gray-400") %>
             </button>
           </li>
         <% else %>

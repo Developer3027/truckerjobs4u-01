@@ -1,5 +1,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  get 'users/dashboard'
 
   # create account page
   get "create_account", to: "create_account#index", as: :create_account
@@ -25,6 +26,21 @@ Rails.application.routes.draw do
     root to: "advisor#index", as: :advisor
   end
 
+  # Root route for user
+  authenticated :user, lambda { |u| u.role == "user" } do
+    root to: "users#dashboard", as: :user
+  end
+
+  # Route to show user address form
+  get "address", to: "users#address", as: :address
+  # Route to create user address
+  post "create_address", to: "users#create_address", as: :create_address
+
+  # Route to show user license form
+  get "license", to: "users#license", as: :license
+  # Route to create user license
+  post "create_license", to: "users#create_license", as: :create_license
+
   # get the blog general root
   get "blog", to: "blog#index", as: :blog
   # get the single blog - show
@@ -47,7 +63,10 @@ Rails.application.routes.draw do
     resources :cover_images, only: [:destroy], module: :blog
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+  }
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

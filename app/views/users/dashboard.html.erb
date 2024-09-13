@@ -1,0 +1,137 @@
+<section class="bg-gray-900 mt-20 min-h-[calc(100vh-88px)]">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+    <div class="flex flex-col bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+      <div class="flex justify-between md:justify-start items-center w-full">
+        <% if @user.avatar.present? %>
+          <div class="rounded-full w-24 h-24 px-2">
+            <%= image_tag(@user.avatar, class: "rounded-full object-cover") if @user.avatar.attached? %>
+          </div>
+        <% end %>
+        <h1 class="text-white text-[18px] text-center lg:text-3xl md:text-5xl font-extrabold mb-2">Welcome <%= current_user.full_name %> <span class="hidden md:inline">to the Dashboard</span></h1>
+      </div>
+      <div>
+        <p class="text-lg font-normal text-gray-400 mb-6">Welcome to TruckerJobs4u.com. From here you will manage all your driving career and job hunt information. From this dashboard you can easily manage your account and all it's information.</p>
+        <p class="text-lg font-normal text-gray-400 mb-4">You have options! At the end of the day, we can only work with the information you give us. Trucking companies are going to ask a lot of questions about you and your driving experience. Whether you are in driving school or part of the million mile club, we do the leg work to find your perfect career. So the more information you provide the quicker we can provide options.</p>
+        <% if current_user.lead.present? && current_user.lead.delete_account_date? %>
+          <p class="text-sm text-orange-400">( Please note: You have an urgent section that includes things that require your attention. )</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+        <!--Urgent section-->
+        <% if current_user.lead.present? && current_user.lead.delete_account_date? %>
+          <span class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md border border-red-200 bg-gray-700 text-red-400 mb-2">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5.464V3.099m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C19 17.4 19 18 18.462 18H5.538C5 18 5 17.4 5 16.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.464ZM6 5 5 4M4 9H3m15-4 1-1m1 5h1M8.54 18a3.48 3.48 0 0 0 6.92 0H8.54Z"/>
+            </svg>&nbsp;
+            ! Urgent !
+          </span>
+          <h2 class="text-red-200 text-3xl font-extrabold my-2">Notice Center</h2>
+          <div class="text-lg font-normal mb-4 w-full bg-yellow-800 rounded-lg p-2">
+            <ul class="text-gray-200">
+              <li>
+                Please change your password! <br />
+                <%= link_to edit_user_registration_path, class: "py-2 px-4 mt-4 rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-700 bg-gray-800 text-red-400 border-gray-600 hover:text-white hover:bg-orange-700 inline-flex text-lg items-center" do %>Edit Profile
+                  <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+                <% end %><br />
+              </li>
+            </ul>
+          </div>
+        <% end  %>
+        <!--Completed section-->
+        <div href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-teal-400 mb-2">
+          <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+          </svg>&nbsp;
+          Get Started
+        </div>
+        <h2 class="text-white text-3xl font-extrabold my-2">Let's get on the road!</h2>
+        <p class="text-lg font-normal text-gray-400 mb-4">Set us to work by completeing a quick form or take your time and follow the steps. Either choice is great and we can't wait to talk to you!</p>
+        <div class="my-4">
+          <%= link_to "/", class: "py-2 px-4 rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-700 bg-gray-800 text-teal-400 border-gray-600 hover:text-white hover:bg-teal-700 inline-flex text-lg items-center" do %>Quick Inquiry
+            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+          <% end %>
+        </div>
+        <hr />
+        <div class="flex flex-wrap justify-between items-center my-4">
+          <!--Address-->
+          <%= link_to address_path, class: "w-full sm:w-auto focus:ring-4 focus:outline-none text-teal-300 hover:text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-teal-700 focus:ring-teal-700" do %>
+            <div class="text-left rtl:text-right">
+              <div class="mb-1 text-xs">Step 1</div>
+              <div class="-mt-1 font-sans text-sm font-semibold">Current Address</div>
+            </div>
+          <% end %>
+          <!--License-->
+          <%= link_to license_path, class: "w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700" do %>
+            <div class="text-left rtl:text-right">
+              <div class="mb-1 text-xs">Step 2</div>
+              <div class="-mt-1 font-sans text-sm font-semibold">License Info</div>
+            </div>
+          <% end %>
+          <!--Full History-->
+          <a href="#" class="w-full sm:w-auto focus:ring-4 focus:outline-none text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+            <div class="text-left rtl:text-right">
+              <div class="mb-1 text-xs">Step 3</div>
+              <div class="-mt-1 font-sans text-sm font-semibold">Work History</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bg-gray-800 border border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+        <div href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 text-lime-400 mb-2">
+          <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z"/>
+          </svg>
+          &nbsp;
+          Completed
+        </div>
+        <h2 class="text-white text-3xl font-extrabold my-2">Completed Section</h2>
+        <p class="text-lg font-normal text-gray-400 mb-4">Here you can keep track of our progress!</p>
+        <hr />
+        <div class="flex flex-col my-4">
+          <!--Account-->
+          <div href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 <% if current_user.lead.present? && current_user.lead.delete_account_date == nil || !current_user.lead.present? %>text-lime-400<% else %>text-red-400<% end %> mb-2">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z"/>
+            </svg>
+            &nbsp;
+            <% if current_user.lead.present? && current_user.lead.delete_account_date == nil || !current_user.lead.present? %>
+              Create account and secure!
+            <% else %>
+              Your account needs to be secure!
+            <% end %>
+          </div>
+          <!--address-->
+          <div href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 <% if current_user.address.present? %>text-lime-400<% else %>text-gray-400<% end %> mb-2">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z"/>
+            </svg>
+            &nbsp;
+            <% if current_user.address.present? %>
+              You have a home base!
+            <% else %>
+              What is your current address?
+            <% end %>
+          </div>
+          <div href="#" class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-700 <% if current_user.license.present? %>text-lime-400<% else %>text-gray-400<% end %> mb-2">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8.032 12 1.984 1.984 4.96-4.96m4.55 5.272.893-.893a1.984 1.984 0 0 0 0-2.806l-.893-.893a1.984 1.984 0 0 1-.581-1.403V7.04a1.984 1.984 0 0 0-1.984-1.984h-1.262a1.983 1.983 0 0 1-1.403-.581l-.893-.893a1.984 1.984 0 0 0-2.806 0l-.893.893a1.984 1.984 0 0 1-1.403.581H7.04A1.984 1.984 0 0 0 5.055 7.04v1.262c0 .527-.209 1.031-.581 1.403l-.893.893a1.984 1.984 0 0 0 0 2.806l.893.893c.372.372.581.876.581 1.403v1.262a1.984 1.984 0 0 0 1.984 1.984h1.262c.527 0 1.031.209 1.403.581l.893.893a1.984 1.984 0 0 0 2.806 0l.893-.893a1.985 1.985 0 0 1 1.403-.581h1.262a1.984 1.984 0 0 0 1.984-1.984V15.7c0-.527.209-1.031.581-1.403Z"/>
+            </svg>
+            &nbsp;
+            <% if current_user.license.present? %>
+              You have a CDL!
+            <% else %>
+              License Information?
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--New Blog-->
